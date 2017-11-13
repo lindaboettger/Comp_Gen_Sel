@@ -1,4 +1,5 @@
 import sys
+import numpy as np 
 #variables we read in
 file = open(sys.argv[1])
 win_size = int(sys.argv[2])
@@ -26,8 +27,12 @@ for line in file:
 		num_snps = len(pos)
 		if num_snps > 0:
 			max_beta = max(betas)
+			#selectstring = df['ColumnD'].where(df['ColumnF'] == '#')
+			max_pos = pos[np.argmax(betas)]
 			mean_beta = sum(betas)/float(num_snps)
-			print("{}\t{}\t{}\t{}\t{}".format(start_pos, end_pos, max_beta, mean_beta, num_snps))
+			print("{}\t{}\t{}\t{}\t{}\t{}".format(
+					start_pos, end_pos, max_beta, 
+					max_pos, mean_beta, num_snps))
 
 		#update new window boundaries
 		start_pos = start_pos + step_size
