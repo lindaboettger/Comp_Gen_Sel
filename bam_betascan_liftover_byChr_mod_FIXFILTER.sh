@@ -113,6 +113,9 @@ if [ $new_species == T ]
         $mafpath/$chr'_sep.tmp' \
         > $mafpath/$chr'_badSB.txt'
 
+    #keep track of how many snps total
+    wc -l < $maffile$chr'.snpStat' > $maffile$chr'.Nsnps'
+
     # filter for only keep snps with both homozygous classes ###
     # The number of columns will vary and this seemed hard 
     # to work with in awk
@@ -137,8 +140,10 @@ if [ $new_species == T ]
         rm $mafpath/$chr'_badSNPs_tmp.txt'
     fi
 
-    # ## check that two are duplicates between badSB and badSNP
-    #sort $outpath'/badSNPs.txt' | uniq -c | grep -v '^ *1 '
+    # get unique values
+    sort $mafpath/$chr'_badSNPs.txt' | uniq > $mafpath/$chr'_badSNPs_tmp.txt'
+    cp $mafpath/$chr'_badSNPs_tmp.txt' $mafpath/$chr'_badSNPs.txt'
+    rm $mafpath/$chr'_badSNPs_tmp.txt'
     nlines=$(wc -l < $mafpath/$chr'_badSNPs.txt')
 
 

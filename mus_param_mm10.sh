@@ -19,8 +19,8 @@ this_chain=$chainpath/mm10ToHg38.over.chain
 ## filters ##
 HWEpval=0.05
 SB=1.01 # fixed nov 16
-MinDepth=50
-MaxDepth=275
+MinDepth=130 # fixed nov 16
+MaxDepth=230 # fixed nov 16
 minInd=5
 minMapQ=30
 minQ=20

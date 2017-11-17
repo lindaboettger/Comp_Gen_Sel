@@ -20,11 +20,10 @@ this_chain=$chainpath/panTro5ToHg38.over.chain
 
 
 ## filters ## -- need to update read depth!!!
-HWEpval=0.02
+HWEpval=0.0217
 SB=2.39 # fixed Nov 16
-### also need to get rid of NaN for sb!!!
-MinDepth=15
-MaxDepth=150
+MinDepth=50 # fixed Nov 16
+MaxDepth=125 # fixed Nov 16
 minInd=6
 minMapQ=30
 minQ=20

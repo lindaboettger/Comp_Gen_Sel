@@ -1,0 +1,7 @@
+chr22
+chr21
+chr10_NW_015973888v1_random
+chr10_NW_015973889v1_random
+chr10_NW_015973890v1_random
+chr10_NW_015973891v1_random
+chr10_NW_015973892v1_random

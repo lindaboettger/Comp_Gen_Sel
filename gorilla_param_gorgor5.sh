@@ -21,11 +21,11 @@ this_chain=$chainpath/gorGor5ToHg38.over.chain
 
 
 ## filters ## -- need to update read depth!!!
-HWEpval=0.01
+HWEpval=0.001
 SB=1.12 # fixed nov 16
-MinDepth=200
-MaxDepth=610
-minInd=15
+MinDepth=200 # fixed nov 16
+MaxDepth=560 # fixed nov 16
+minInd=15 #I have 27 gorillas
 minMapQ=30
 minQ=20
 

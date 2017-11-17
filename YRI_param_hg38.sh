@@ -21,11 +21,11 @@ ref=/seq/references/Homo_sapiens_assembly38/v0/Homo_sapiens_assembly38.fasta
 
 
 ## below depth calculated from get_read_depth.sh
-HWEpval=0.00001
+HWEpval=0.000001
 SB=1.49 # Nov 16 fix
-MinDepth=300 #nov16 fix
-MaxDepth=720 #nov16 fix
-minInd=22
+MinDepth=375 #nov16 fix
+MaxDepth=700 #nov16 fix
+minInd=43 #85 indv total, but low coverage
 minMapQ=30
 minQ=20
 

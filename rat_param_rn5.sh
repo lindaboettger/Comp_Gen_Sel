@@ -21,11 +21,11 @@ this_chain=$chainpath/rn5ToHg38.over.chain
 
 ## filters ## -- need to update all!!!
 #13 rats total
-HWEpval=0.02
+HWEpval=0.01
 SB=1.13 # fixed nov 16
 MinDepth=225 #nov 16
-MaxDepth=400 #nov16
-minInd=6
+MaxDepth=380 #nov16
+minInd=7 #I have 13 rats
 minMapQ=30
 minQ=20
 
