@@ -3,7 +3,7 @@
 ## set paths ##
 species='chimp'
 parentpath='/seq/vgb/linda/bal_sel/population_data'
-mychrs='/seq/vgb/linda/bal_sel/lists/chimp_large_chrs.txt'
+mychrs='/seq/vgb/linda/bal_sel/lists/chimp_pantro5_chain_chrs.txt' ## updated on nov 16
 bampath=$parentpath'/bams/'$species
 betapath=$parentpath'/betas/'$species
 bamfilelist=$bampath/$species'.bamfilelist'
@@ -20,11 +20,12 @@ this_chain=$chainpath/panTro5ToHg38.over.chain
 
 
 ## filters ## -- need to update read depth!!!
-HWEpval=0.0217
-SBpval=0.0001 # this is the smallest number that snp stats keeps
+HWEpval=0.02
+SB=2.39 # fixed Nov 16
+### also need to get rid of NaN for sb!!!
 MinDepth=15
 MaxDepth=150
-minInd=5
+minInd=6
 minMapQ=30
 minQ=20
 

@@ -17,7 +17,7 @@ qsub -S /bin/bash -q vert -v chr=$c,new_species=$new_species,species_param=$spec
  -N $species'_'$c'_'$win  \
  -wd $wd \
  -p -10 \
- /seq/vgb/linda/bal_sel/scripts_2017/bam_betascan_liftover_byChr_mod.sh
+ /seq/vgb/linda/bal_sel/scripts_2017/bam_betascan_liftover_byChr_mod_FIXFILTER.sh
 done < $mychrs
 
 ### how many chrs are there?

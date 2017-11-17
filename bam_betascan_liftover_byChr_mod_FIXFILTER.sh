@@ -104,14 +104,23 @@ if [ $new_species == T ]
     grep -e "^$chr" $maffile$chr'.snpStat' | awk -F":" '$1=$1' OFS="\t" > $mafpath/$chr'_sep.tmp'
 
     # ### filter on HWE
-    awk -v HWE=$HWEpval '$11 < HWE' $mafpath/$chr'_sep.tmp' > $mafpath/$chr'_badHWE.txt'
+    awk -v HWE=$HWEpval '{ if ($11 < HWE) print $0 }' $mafpath/$chr'_sep.tmp' \
+         > $mafpath/$chr'_badHWE.txt'
 
-    # ### filter on SB (I seem to be using SB3)
-    awk -v SB=$SBpval '$9 < SB' $mafpath/$chr'_sep.tmp' > $mafpath/$chr'_badSB.txt'
 
-    ## filter for only keep snps with both homozygous classes ###
-    ## The number of columns will vary and this seemed hard 
-    ## to work with in awk
+    ###filter on Strand bias
+    awk -v SB=$SB 'function abs(x){return ((x < 0.0) ? -x : x)} {if (abs($7) > SB) print $0}' \
+        $mafpath/$chr'_sep.tmp' \
+        > $mafpath/$chr'_badSB.txt'
+
+    # filter for only keep snps with both homozygous classes ###
+    # The number of columns will vary and this seemed hard 
+    # to work with in awk
+
+    # also get rid of -NaN and NaN (acutally the above SB filter captures nan)
+    #awk '$7=="-nan" || $7=="nan"' $mafpath/$chr'_sep.tmp' >> $mafpath/$chr'_badSB.txt'
+
+
     Rscript /seq/vgb/linda/bal_sel/scripts_2017/both_homoz.R \
         $maffile$chr'.geno' \
 

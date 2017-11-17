@@ -21,8 +21,8 @@ this_chain=$chainpath/gorGor5ToHg38.over.chain
 
 
 ## filters ## -- need to update read depth!!!
-HWEpval=0.0217
-SBpval=0.0001 # this is the smallest number that snp stats keeps
+HWEpval=0.01
+SB=1.12 # fixed nov 16
 MinDepth=200
 MaxDepth=610
 minInd=15

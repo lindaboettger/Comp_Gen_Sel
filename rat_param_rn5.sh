@@ -3,7 +3,7 @@
 ## set paths ##
 species='rat'
 parentpath='/seq/vgb/linda/bal_sel/population_data'
-mychrs='/seq/vgb/linda/bal_sel/lists/large_rat_chr_rn5.txt'
+mychrs='/seq/vgb/linda/bal_sel/lists/rat_rn5_chain_chrs.txt'
 bampath=$parentpath'/bams/'$species
 betapath=$parentpath'/betas/'$species
 bamfilelist=$bampath/$species'.bamfilelist'
@@ -22,9 +22,9 @@ this_chain=$chainpath/rn5ToHg38.over.chain
 ## filters ## -- need to update all!!!
 #13 rats total
 HWEpval=0.02
-SBpval=0.0001 # this is the smallest number that snp stats keeps
-MinDepth=150
-MaxDepth=420
+SB=1.13 # fixed nov 16
+MinDepth=225 #nov 16
+MaxDepth=400 #nov16
 minInd=6
 minMapQ=30
 minQ=20
