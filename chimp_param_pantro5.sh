@@ -3,7 +3,8 @@
 ## set paths ##
 species='chimp'
 parentpath='/seq/vgb/linda/bal_sel/population_data'
-mychrs='/seq/vgb/linda/bal_sel/lists/chimp_pantro5_chain_chrs.txt' ## updated on nov 16
+#mychrs='/seq/vgb/linda/bal_sel/lists/chimp_pantro5_chain_chrs.txt' ## updated on nov 16
+mychrs='/seq/vgb/linda/bal_sel/scripts_2017/chimp_test_chrs_pantro5.txt'
 bampath=$parentpath'/bams/'$species
 betapath=$parentpath'/betas/'$species
 bamfilelist=$bampath/$species'.bamfilelist'
