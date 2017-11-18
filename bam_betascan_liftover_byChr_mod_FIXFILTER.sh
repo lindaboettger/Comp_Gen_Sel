@@ -132,7 +132,7 @@ if [ $new_species == T ]
 
     ### Get rid of positions without both homozygotes
     ### if we are filtering for that
-    if [$filt_both_homo == T]; then
+    if [ $filt_both_homo == T ]; then
         echo "getting rid of snps without both homozygous classes"
         cp $mafpath/$chr'_badSNPs.txt' $mafpath/$chr'_badSNPs_tmp.txt'
         cat $mafpath/$chr'_badSNPs_tmp.txt' $maffile$chr'.geno_lacking_homoz.txt' \
