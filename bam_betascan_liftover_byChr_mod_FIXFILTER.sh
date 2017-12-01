@@ -76,7 +76,7 @@ if [ $new_species == T ]
         -GL 2 \
         -doGlf 1 \
         -r $chr \
-        -snp_pval 1e-3 \
+        -snp_pval 1e-6 \
         -doCounts 1 \
         -minInd $minInd \
         -doGeno 2 \
