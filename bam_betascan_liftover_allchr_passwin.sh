@@ -11,7 +11,7 @@ rm /seq/vgb/linda/bal_sel/out/$species'beta_out'
 rm /seq/vgb/linda/bal_sel/err/$species'beta_err'
 
 #remove previous outputs
-#rm -r /seq/vgb/linda/bal_sel/population_data/mafs/$species/*
+rm -r /seq/vgb/linda/bal_sel/population_data/mafs/$species/*
 rm -r /seq/vgb/linda/bal_sel/population_data/betas/$species/*
 rm -r /seq/vgb/linda/bal_sel/population_data/lifts/$species/*
 rm -r /seq/vgb/linda/bal_sel/population_data/liftout/$species/*
@@ -24,7 +24,7 @@ qsub -S /bin/bash -q vert -v chr=$c,new_species=$new_species,species_param=$spec
  -N $species'_'$c'_'$win  \
  -wd $wd \
  -p -10 \
- /seq/vgb/linda/bal_sel/scripts_2017/bam_betascan_liftover_byChr_mod_FIXFILTER.sh
+ /seq/vgb/linda/bal_sel/scripts_2017/bam_betascan_liftover_byChr_passwin.sh
 done < $mychrs
 
 ### how many chrs are there?

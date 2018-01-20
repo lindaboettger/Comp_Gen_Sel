@@ -69,29 +69,29 @@ if [ $new_species == T ]
         # -doGlf 2 Beagle 
     #doGeno 2 is to find sites with both homozygous classes (requires doPost)
 
-    /seq/vgb/linda/bin/Feb2017_angsd/angsd/angsd \
-        -bam $bamfilelist \
-        -out $maffile$chr \
-        -ref $ref \
-        -GL 2 \
-        -doGlf 1 \
-        -r $chr \
-        -snp_pval 1e-6 \
-        -doCounts 1 \
-        -minInd $minInd \
-        -doGeno 2 \
-        -doPost 1 \
-        -domaf 1 \
-        -doMajorMinor 1 \
-        -remove_bads 1 \
-        -only_proper_pairs 1 \
-        -uniqueOnly 1 \
-        -setMinDepth $MinDepth \
-        -setMaxDepth $MaxDepth \
-        -minMapQ $minMapQ \
-        -minQ $minQ \
-        -doSnpStat 1 \
-        -fold 1
+    # /seq/vgb/linda/bin/Feb2017_angsd/angsd/angsd \
+    #     -bam $bamfilelist \
+    #     -out $maffile$chr \
+    #     -ref $ref \
+    #     -GL 2 \
+    #     -doGlf 1 \
+    #     -r $chr \
+    #     -snp_pval 1e-6 \
+    #     -doCounts 1 \
+    #     -minInd $minInd \
+    #     -doGeno 2 \
+    #     -doPost 1 \
+    #     -domaf 1 \
+    #     -doMajorMinor 1 \
+    #     -remove_bads 1 \
+    #     -only_proper_pairs 1 \
+    #     -uniqueOnly 1 \
+    #     -setMinDepth $MinDepth \
+    #     -setMaxDepth $MaxDepth \
+    #     -minMapQ $minMapQ \
+    #     -minQ $minQ \
+    #     -doSnpStat 1 \
+    #     -fold 1
 
 
     # ##### ################# filter HWE and SB ############################
@@ -127,6 +127,9 @@ if [ $new_species == T ]
     Rscript /seq/vgb/linda/bal_sel/scripts_2017/both_homoz.R \
         $maffile$chr'.geno' \
 
+    #replace  with tab (it skips these otherwise
+    perl -p -i -e 's/ /\t/g' $maffile$chr'.geno_lacking_homoz.txt'
+
     ## combine
     cat $mafpath/$chr'_badHWE.txt' $mafpath/$chr'_badSB.txt' > $mafpath/$chr'_badSNPs.txt'
 
@@ -159,6 +162,7 @@ if [ $new_species == T ]
         gzip $maffile$chr'.mafs'
     fi
     
+    #431023 /seq/vgb/linda/bal_sel/population_data/mafs/mus/mus_chr2_filtered.mafs
     
     # gzip $outpath'/YRIfiltered_'$chr'.thetas'
 
